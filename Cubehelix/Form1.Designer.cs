@@ -40,15 +40,18 @@ namespace Cubehelix
             this.gammaNUD = new System.Windows.Forms.NumericUpDown();
             this.startingColorNUD = new System.Windows.Forms.NumericUpDown();
             this.rotationsNUD = new System.Windows.Forms.NumericUpDown();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationsNUD)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(755, 483);
@@ -59,7 +62,7 @@ namespace Cubehelix
             // hueLabel
             // 
             this.hueLabel.AutoSize = true;
-            this.hueLabel.Location = new System.Drawing.Point(13, 502);
+            this.hueLabel.Location = new System.Drawing.Point(13, 8);
             this.hueLabel.Name = "hueLabel";
             this.hueLabel.Size = new System.Drawing.Size(87, 17);
             this.hueLabel.TabIndex = 1;
@@ -68,7 +71,7 @@ namespace Cubehelix
             // gammaLabel
             // 
             this.gammaLabel.AutoSize = true;
-            this.gammaLabel.Location = new System.Drawing.Point(13, 530);
+            this.gammaLabel.Location = new System.Drawing.Point(13, 36);
             this.gammaLabel.Name = "gammaLabel";
             this.gammaLabel.Size = new System.Drawing.Size(57, 17);
             this.gammaLabel.TabIndex = 3;
@@ -77,7 +80,7 @@ namespace Cubehelix
             // rotationsLabel
             // 
             this.rotationsLabel.AutoSize = true;
-            this.rotationsLabel.Location = new System.Drawing.Point(211, 502);
+            this.rotationsLabel.Location = new System.Drawing.Point(211, 8);
             this.rotationsLabel.Name = "rotationsLabel";
             this.rotationsLabel.Size = new System.Drawing.Size(68, 17);
             this.rotationsLabel.TabIndex = 5;
@@ -86,7 +89,7 @@ namespace Cubehelix
             // startColorLabel
             // 
             this.startColorLabel.AutoSize = true;
-            this.startColorLabel.Location = new System.Drawing.Point(211, 530);
+            this.startColorLabel.Location = new System.Drawing.Point(211, 36);
             this.startColorLabel.Name = "startColorLabel";
             this.startColorLabel.Size = new System.Drawing.Size(94, 17);
             this.startColorLabel.TabIndex = 7;
@@ -94,12 +97,13 @@ namespace Cubehelix
             // 
             // hueNUD
             // 
+            this.hueNUD.DecimalPlaces = 2;
             this.hueNUD.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.hueNUD.Location = new System.Drawing.Point(106, 502);
+            this.hueNUD.Location = new System.Drawing.Point(106, 8);
             this.hueNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -113,12 +117,13 @@ namespace Cubehelix
             // 
             // gammaNUD
             // 
+            this.gammaNUD.DecimalPlaces = 2;
             this.gammaNUD.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.gammaNUD.Location = new System.Drawing.Point(106, 530);
+            this.gammaNUD.Location = new System.Drawing.Point(106, 36);
             this.gammaNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -132,12 +137,13 @@ namespace Cubehelix
             // 
             // startingColorNUD
             // 
+            this.startingColorNUD.DecimalPlaces = 2;
             this.startingColorNUD.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.startingColorNUD.Location = new System.Drawing.Point(311, 530);
+            this.startingColorNUD.Location = new System.Drawing.Point(311, 36);
             this.startingColorNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -151,12 +157,13 @@ namespace Cubehelix
             // 
             // rotationsNUD
             // 
+            this.rotationsNUD.DecimalPlaces = 2;
             this.rotationsNUD.Increment = new decimal(new int[] {
             1,
             0,
             0,
             65536});
-            this.rotationsNUD.Location = new System.Drawing.Point(311, 500);
+            this.rotationsNUD.Location = new System.Drawing.Point(311, 6);
             this.rotationsNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -168,19 +175,27 @@ namespace Cubehelix
             this.rotationsNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.rotationsNUD.ValueChanged += new System.EventHandler(this.rotationsNUD_ValueChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rotationsNUD);
+            this.panel1.Controls.Add(this.startingColorNUD);
+            this.panel1.Controls.Add(this.gammaNUD);
+            this.panel1.Controls.Add(this.hueNUD);
+            this.panel1.Controls.Add(this.startColorLabel);
+            this.panel1.Controls.Add(this.rotationsLabel);
+            this.panel1.Controls.Add(this.gammaLabel);
+            this.panel1.Controls.Add(this.hueLabel);
+            this.panel1.Location = new System.Drawing.Point(1, 501);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(415, 62);
+            this.panel1.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 559);
-            this.Controls.Add(this.rotationsNUD);
-            this.Controls.Add(this.startingColorNUD);
-            this.Controls.Add(this.gammaNUD);
-            this.Controls.Add(this.hueNUD);
-            this.Controls.Add(this.startColorLabel);
-            this.Controls.Add(this.rotationsLabel);
-            this.Controls.Add(this.gammaLabel);
-            this.Controls.Add(this.hueLabel);
+            this.ClientSize = new System.Drawing.Size(779, 571);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -190,8 +205,9 @@ namespace Cubehelix
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationsNUD)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -206,6 +222,7 @@ namespace Cubehelix
         private System.Windows.Forms.NumericUpDown gammaNUD;
         private System.Windows.Forms.NumericUpDown startingColorNUD;
         private System.Windows.Forms.NumericUpDown rotationsNUD;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

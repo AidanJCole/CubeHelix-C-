@@ -13,6 +13,7 @@ namespace Cubehelix
     public partial class Form1 : Form
     {
         Cubehelix helix = new Cubehelix();
+        int innerPicBoxPadding = 10;
 
         public Form1()
         {
@@ -30,21 +31,25 @@ namespace Cubehelix
         private void hueNUD_ValueChanged(object sender, EventArgs e)
         {
             helix.Hue = (double)hueNUD.Value;
+            Refresh();
         }
 
         private void gammaNUD_ValueChanged(object sender, EventArgs e)
         {
             helix.Gamma = (double)gammaNUD.Value;
+            Refresh();
         }
 
         private void rotationsNUD_ValueChanged(object sender, EventArgs e)
         {
-            helix.Rotations
+            helix.Rotations = (double)rotationsNUD.Value;
+            Refresh();
         }
 
         private void startingColorNUD_ValueChanged(object sender, EventArgs e)
         {
-
+            helix.Start = (double)startingColorNUD.Value;
+            Refresh();
         }
 
 
@@ -68,7 +73,7 @@ namespace Cubehelix
 
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
     }
 }
