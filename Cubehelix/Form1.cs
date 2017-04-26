@@ -84,7 +84,7 @@ namespace Cubehelix
 
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if (loaded)
+            if (this.IsHandleCreated)
             {
                 int dx = this.ClientSize.Width - oldFormWidth;
                 int dy = this.ClientSize.Height - oldFormHeight;
