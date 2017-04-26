@@ -14,6 +14,9 @@ namespace Cubehelix
     {
         Cubehelix helix = new Cubehelix();
         int innerPicBoxPadding = 10;
+        int oldFormWidth;
+        int oldFormHeight;
+        bool loaded = false;
 
         public Form1()
         {
@@ -26,6 +29,9 @@ namespace Cubehelix
             gammaNUD.Value = (decimal)helix.Gamma;
             rotationsNUD.Value = (decimal)helix.Rotations;
             startingColorNUD.Value = (decimal)helix.Start;
+            oldFormWidth = this.ClientSize.Width;
+            oldFormHeight = this.ClientSize.Height;
+            loaded = true;
         }
 
         private void hueNUD_ValueChanged(object sender, EventArgs e)
@@ -74,6 +80,21 @@ namespace Cubehelix
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
             
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (loaded)
+            {
+                int dx = this.ClientSize.Width - oldFormWidth;
+                int dy = this.ClientSize.Height - oldFormHeight;
+                oldFormHeight = this.ClientSize.Height;
+                oldFormWidth = this.ClientSize.Width;
+                numberPanel.Location = 
+                    new Point(numberPanel.Location.X, numberPanel.Location.Y + dy);
+                pictureBox1.Width += dx;
+                pictureBox1.Height += dy;
+            }
         }
     }
 }

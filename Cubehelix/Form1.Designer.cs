@@ -40,13 +40,13 @@ namespace Cubehelix
             this.gammaNUD = new System.Windows.Forms.NumericUpDown();
             this.startingColorNUD = new System.Windows.Forms.NumericUpDown();
             this.rotationsNUD = new System.Windows.Forms.NumericUpDown();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.numberPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationsNUD)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.numberPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -175,38 +175,40 @@ namespace Cubehelix
             this.rotationsNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.rotationsNUD.ValueChanged += new System.EventHandler(this.rotationsNUD_ValueChanged);
             // 
-            // panel1
+            // numberPanel
             // 
-            this.panel1.Controls.Add(this.rotationsNUD);
-            this.panel1.Controls.Add(this.startingColorNUD);
-            this.panel1.Controls.Add(this.gammaNUD);
-            this.panel1.Controls.Add(this.hueNUD);
-            this.panel1.Controls.Add(this.startColorLabel);
-            this.panel1.Controls.Add(this.rotationsLabel);
-            this.panel1.Controls.Add(this.gammaLabel);
-            this.panel1.Controls.Add(this.hueLabel);
-            this.panel1.Location = new System.Drawing.Point(1, 501);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 62);
-            this.panel1.TabIndex = 12;
+            this.numberPanel.Controls.Add(this.rotationsNUD);
+            this.numberPanel.Controls.Add(this.startingColorNUD);
+            this.numberPanel.Controls.Add(this.gammaNUD);
+            this.numberPanel.Controls.Add(this.hueNUD);
+            this.numberPanel.Controls.Add(this.startColorLabel);
+            this.numberPanel.Controls.Add(this.rotationsLabel);
+            this.numberPanel.Controls.Add(this.gammaLabel);
+            this.numberPanel.Controls.Add(this.hueLabel);
+            this.numberPanel.Location = new System.Drawing.Point(1, 501);
+            this.numberPanel.Name = "numberPanel";
+            this.numberPanel.Size = new System.Drawing.Size(415, 62);
+            this.numberPanel.TabIndex = 12;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 571);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.numberPanel);
             this.Controls.Add(this.pictureBox1);
+            this.MinimumSize = new System.Drawing.Size(797, 618);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationsNUD)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.numberPanel.ResumeLayout(false);
+            this.numberPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -222,7 +224,7 @@ namespace Cubehelix
         private System.Windows.Forms.NumericUpDown gammaNUD;
         private System.Windows.Forms.NumericUpDown startingColorNUD;
         private System.Windows.Forms.NumericUpDown rotationsNUD;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel numberPanel;
     }
 }
 
