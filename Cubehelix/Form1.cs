@@ -16,7 +16,6 @@ namespace Cubehelix
         int innerPicBoxPadding = 10;
         int oldFormWidth;
         int oldFormHeight;
-        bool loaded = false;
 
         public Form1()
         {
@@ -31,7 +30,6 @@ namespace Cubehelix
             startingColorNUD.Value = (decimal)helix.Start;
             oldFormWidth = this.ClientSize.Width;
             oldFormHeight = this.ClientSize.Height;
-            loaded = true;
         }
 
         private void hueNUD_ValueChanged(object sender, EventArgs e)
