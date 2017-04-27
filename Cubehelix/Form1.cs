@@ -110,18 +110,14 @@ namespace Cubehelix
 
         private void drawSpectrum(Graphics graphicsObj)
         {
-            graphicsObj.Clear(Color.White);
-            graphicsObj.DrawRectangle(Pens.Brown, innerPicBoxPadding, innerPicBoxPadding,
-                pictureBox.Width - 2 * innerPicBoxPadding, spectrumHeight);
-            //int spectrumWidth = pictureBox.Width - 2 * innerPicBoxPadding;
-            //for (int i = 0; i < pictureBox.Width - 2 * innerPicBoxPadding; i++)
-            //{
-            //    graphicsObj.DrawLine(
-            //        new Pen(
-            //            new SolidBrush(helix.getAtPoint(interpolate(i, 0, spectrumWidth, 0, 1))), 1),
-            //            innerPicBoxPadding + i, innerPicBoxPadding, innerPicBoxPadding + i, innerPicBoxPadding + spectrumHeight);
-            //}
-
+            int spectrumWidth = pictureBox.Width - 2 * innerPicBoxPadding;
+            for (int i = 0; i < pictureBox.Width - 2 * innerPicBoxPadding; i++)
+            {
+                graphicsObj.DrawLine(
+                    new Pen(
+                        new SolidBrush(helix.getAtPoint(interpolate(i, 0, spectrumWidth, 0, 1))), 1),
+                        innerPicBoxPadding + i, innerPicBoxPadding, innerPicBoxPadding + i, innerPicBoxPadding + spectrumHeight);
+            }
         }
 
         private void drawPlot(Graphics graphicsObj)

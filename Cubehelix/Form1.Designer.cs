@@ -64,9 +64,9 @@ namespace Cubehelix
             this.hueLabel.AutoSize = true;
             this.hueLabel.Location = new System.Drawing.Point(13, 8);
             this.hueLabel.Name = "hueLabel";
-            this.hueLabel.Size = new System.Drawing.Size(87, 17);
+            this.hueLabel.Size = new System.Drawing.Size(34, 17);
             this.hueLabel.TabIndex = 1;
-            this.hueLabel.Text = "Starting Hue";
+            this.hueLabel.Text = "Hue";
             // 
             // gammaLabel
             // 
@@ -80,7 +80,7 @@ namespace Cubehelix
             // rotationsLabel
             // 
             this.rotationsLabel.AutoSize = true;
-            this.rotationsLabel.Location = new System.Drawing.Point(211, 8);
+            this.rotationsLabel.Location = new System.Drawing.Point(185, 8);
             this.rotationsLabel.Name = "rotationsLabel";
             this.rotationsLabel.Size = new System.Drawing.Size(68, 17);
             this.rotationsLabel.TabIndex = 5;
@@ -89,7 +89,7 @@ namespace Cubehelix
             // startColorLabel
             // 
             this.startColorLabel.AutoSize = true;
-            this.startColorLabel.Location = new System.Drawing.Point(211, 36);
+            this.startColorLabel.Location = new System.Drawing.Point(185, 36);
             this.startColorLabel.Name = "startColorLabel";
             this.startColorLabel.Size = new System.Drawing.Size(94, 17);
             this.startColorLabel.TabIndex = 7;
@@ -103,7 +103,7 @@ namespace Cubehelix
             0,
             0,
             65536});
-            this.hueNUD.Location = new System.Drawing.Point(106, 8);
+            this.hueNUD.Location = new System.Drawing.Point(80, 8);
             this.hueNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -123,7 +123,7 @@ namespace Cubehelix
             0,
             0,
             65536});
-            this.gammaNUD.Location = new System.Drawing.Point(106, 36);
+            this.gammaNUD.Location = new System.Drawing.Point(80, 36);
             this.gammaNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -143,7 +143,7 @@ namespace Cubehelix
             0,
             0,
             65536});
-            this.startingColorNUD.Location = new System.Drawing.Point(311, 36);
+            this.startingColorNUD.Location = new System.Drawing.Point(285, 36);
             this.startingColorNUD.Minimum = new decimal(new int[] {
             100,
             0,
@@ -163,7 +163,7 @@ namespace Cubehelix
             0,
             0,
             65536});
-            this.rotationsNUD.Location = new System.Drawing.Point(311, 6);
+            this.rotationsNUD.Location = new System.Drawing.Point(285, 6);
             this.rotationsNUD.Minimum = new decimal(new int[] {
             100,
             0,

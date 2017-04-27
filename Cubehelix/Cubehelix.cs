@@ -79,6 +79,10 @@ namespace Cubehelix
                 {
                     result[i,0] = 0;
                 }
+                else if (double.IsNaN(result[i, 0]))
+                {
+                    result[i, 0] = 0;
+                }
             }
             Color color = Color.FromArgb((int)result[0, 0], (int)result[1,0], (int)result[2,0]);
             return color;
