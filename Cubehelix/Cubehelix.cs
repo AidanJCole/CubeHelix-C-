@@ -40,7 +40,7 @@ namespace Cubehelix
 
         public double getValue(double y)
         {
-            return Math.Pow(y, gamma);
+            return Math.Pow(interpolate(y, 0, 1, startLightness, endLightness), gamma);
         }
 
         private double findTheta(double y)
@@ -50,8 +50,7 @@ namespace Cubehelix
 
         private double findA( double y)
         {
-            
-            double yToTheGamma = Math.Pow(y, gamma);
+            double yToTheGamma = Math.Pow(interpolate(y, 0, 1, startLightness, endLightness), gamma);
             return (hue * yToTheGamma * (1 - yToTheGamma)) / 2;
         }
 
