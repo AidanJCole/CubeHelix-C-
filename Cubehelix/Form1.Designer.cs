@@ -31,7 +31,7 @@ namespace Cubehelix
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.hueLabel = new System.Windows.Forms.Label();
             this.gammaLabel = new System.Windows.Forms.Label();
             this.rotationsLabel = new System.Windows.Forms.Label();
@@ -41,7 +41,7 @@ namespace Cubehelix
             this.startingColorNUD = new System.Windows.Forms.NumericUpDown();
             this.rotationsNUD = new System.Windows.Forms.NumericUpDown();
             this.numberPanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).BeginInit();
@@ -49,15 +49,15 @@ namespace Cubehelix
             this.numberPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pictureBox
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(755, 483);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            this.pictureBox.BackColor = System.Drawing.Color.White;
+            this.pictureBox.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(755, 483);
+            this.pictureBox.TabIndex = 0;
+            this.pictureBox.TabStop = false;
+            this.pictureBox.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
             // hueLabel
             // 
@@ -187,7 +187,7 @@ namespace Cubehelix
             this.numberPanel.Controls.Add(this.hueLabel);
             this.numberPanel.Location = new System.Drawing.Point(1, 501);
             this.numberPanel.Name = "numberPanel";
-            this.numberPanel.Size = new System.Drawing.Size(415, 62);
+            this.numberPanel.Size = new System.Drawing.Size(588, 62);
             this.numberPanel.TabIndex = 12;
             // 
             // Form1
@@ -196,13 +196,13 @@ namespace Cubehelix
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 571);
             this.Controls.Add(this.numberPanel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox);
             this.MinimumSize = new System.Drawing.Size(797, 618);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "+";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.Form1_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).EndInit();
@@ -215,7 +215,7 @@ namespace Cubehelix
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label hueLabel;
         private System.Windows.Forms.Label gammaLabel;
         private System.Windows.Forms.Label rotationsLabel;
