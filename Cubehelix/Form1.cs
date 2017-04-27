@@ -90,6 +90,7 @@ namespace Cubehelix
             Graphics graphicsObj = e.Graphics;
 
             drawSpectrum(graphicsObj);
+            drawPlot(graphicsObj);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
@@ -108,10 +109,22 @@ namespace Cubehelix
             }
         }
 
+        private void startNUD_ValueChanged(object sender, EventArgs e)
+        {
+            helix.StartLightness = (double)startNUD.Value;
+            Refresh();
+        }
+
+        private void endNUD_ValueChanged(object sender, EventArgs e)
+        {
+            helix.EndLightness = (double)endNUD.Value;
+            Refresh();
+        }
+
         private void drawSpectrum(Graphics graphicsObj)
         {
             int spectrumWidth = pictureBox.Width - 2 * innerPicBoxPadding;
-            for (int i = 0; i < pictureBox.Width - 2 * innerPicBoxPadding; i++)
+            for (int i = 0; i < spectrumWidth; i++)
             {
                 graphicsObj.DrawLine(
                     new Pen(
@@ -122,7 +135,38 @@ namespace Cubehelix
 
         private void drawPlot(Graphics graphicsObj)
         {
-
+            int spectrumWidth = pictureBox.Width - 2 * innerPicBoxPadding;
+            for (int i = 0; i < spectrumWidth; i++)
+            {
+                Color myColor = helix.getAtPoint(interpolate(i, 0, spectrumWidth, 0, 1));
+                double preValue = helix.getValue(interpolate(i, 0, spectrumWidth, 0, 1));
+                
+                float yComponent = (float)interpolate(preValue, 0, 1, pictureBox.Height -  innerPicBoxPadding, spectrumHeight + 2 * innerPicBoxPadding);
+                graphicsObj.DrawRectangle(
+                    new Pen(
+                        Brushes.Gray, 1),
+                        innerPicBoxPadding + i, 
+                        yComponent,  
+                        1,1);
+                graphicsObj.DrawRectangle(
+                    new Pen(
+                        Brushes.Red, 1),
+                        innerPicBoxPadding + i,
+                        (float)interpolate(myColor.R, 0, 255, pictureBox.Height - innerPicBoxPadding, spectrumHeight + 2 * innerPicBoxPadding),
+                        1, 1);
+                graphicsObj.DrawRectangle(
+                    new Pen(
+                        Brushes.Green, 1),
+                        innerPicBoxPadding + i,
+                        (float)interpolate(myColor.G, 0, 255, pictureBox.Height - innerPicBoxPadding, spectrumHeight + 2 * innerPicBoxPadding),
+                        1, 1);
+                graphicsObj.DrawRectangle(
+                    new Pen(
+                        Brushes.Blue, 1),
+                        innerPicBoxPadding + i,
+                        (float)interpolate(myColor.B, 0, 255, pictureBox.Height - innerPicBoxPadding, spectrumHeight + 2 * innerPicBoxPadding),
+                        1, 1);
+            }
         }
     }
 }

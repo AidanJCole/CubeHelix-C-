@@ -15,7 +15,7 @@ namespace Cubehelix
         double rotations = 1.5;
         double gamma = 1.0;
         double start = .5;
-        double hue = 2;
+        double hue = 1.4;
         double startLightness = 0;
         double endLightness = 1;
 
@@ -35,6 +35,13 @@ namespace Cubehelix
         public double Gamma { get => gamma; set => gamma = value; }
         public double Start { get => start; set => start = value; }
         public double Hue { get => hue; set => hue = value; }
+        public double StartLightness { get => startLightness; set => startLightness = value; }
+        public double EndLightness { get => endLightness; set => endLightness = value; }
+
+        public double getValue(double y)
+        {
+            return Math.Pow(y, gamma);
+        }
 
         private double findTheta(double y)
         {
@@ -52,13 +59,13 @@ namespace Cubehelix
         {
             
             double theta = findTheta(y);
-            double yToTheGamma = Math.Pow(y, gamma);
             double a = findA(y);
+            double adjustedYToTheGamma = Math.Pow(interpolate(y,0,1,startLightness,endLightness) , gamma);
             Matrix<double> lambdaAjdusted = DenseMatrix.OfArray(new double[,]
             {
-                {yToTheGamma },
-                {yToTheGamma },
-                {yToTheGamma },
+                {adjustedYToTheGamma },
+                {adjustedYToTheGamma },
+                {adjustedYToTheGamma },
             });
             Matrix<double> angles = DenseMatrix.OfArray(new double[,]
             {
@@ -79,13 +86,26 @@ namespace Cubehelix
                 {
                     result[i,0] = 0;
                 }
-                else if (double.IsNaN(result[i, 0]))
+                else if (double.IsNaN(result[i, 0])||double.IsNegativeInfinity(result[i,0]))
                 {
                     result[i, 0] = 0;
+                }
+                else if (double.IsPositiveInfinity(result[i, 0]))
+                {
+                    result[i, 0] = 255;
                 }
             }
             Color color = Color.FromArgb((int)result[0, 0], (int)result[1,0], (int)result[2,0]);
             return color;
+        }
+
+        private static double interpolate(double x, double x0, double x1, double y0, double y1)
+        {
+            if ((x1 - x0) == 0)
+            {
+                return (y0 + y1) / 2;
+            }
+            return y0 + (x - x0) * (y1 - y0) / (x1 - x0);
         }
     }
 }

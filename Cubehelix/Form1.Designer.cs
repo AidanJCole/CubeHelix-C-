@@ -41,12 +41,18 @@ namespace Cubehelix
             this.startingColorNUD = new System.Windows.Forms.NumericUpDown();
             this.rotationsNUD = new System.Windows.Forms.NumericUpDown();
             this.numberPanel = new System.Windows.Forms.Panel();
+            this.startLabel = new System.Windows.Forms.Label();
+            this.endLabel = new System.Windows.Forms.Label();
+            this.startNUD = new System.Windows.Forms.NumericUpDown();
+            this.endNUD = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hueNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gammaNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startingColorNUD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rotationsNUD)).BeginInit();
             this.numberPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.startNUD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endNUD)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox
@@ -124,11 +130,6 @@ namespace Cubehelix
             0,
             65536});
             this.gammaNUD.Location = new System.Drawing.Point(80, 36);
-            this.gammaNUD.Minimum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            -2147483648});
             this.gammaNUD.Name = "gammaNUD";
             this.gammaNUD.Size = new System.Drawing.Size(99, 22);
             this.gammaNUD.TabIndex = 9;
@@ -177,6 +178,10 @@ namespace Cubehelix
             // 
             // numberPanel
             // 
+            this.numberPanel.Controls.Add(this.endNUD);
+            this.numberPanel.Controls.Add(this.startNUD);
+            this.numberPanel.Controls.Add(this.endLabel);
+            this.numberPanel.Controls.Add(this.startLabel);
             this.numberPanel.Controls.Add(this.rotationsNUD);
             this.numberPanel.Controls.Add(this.startingColorNUD);
             this.numberPanel.Controls.Add(this.gammaNUD);
@@ -189,6 +194,69 @@ namespace Cubehelix
             this.numberPanel.Name = "numberPanel";
             this.numberPanel.Size = new System.Drawing.Size(588, 62);
             this.numberPanel.TabIndex = 12;
+            // 
+            // startLabel
+            // 
+            this.startLabel.AutoSize = true;
+            this.startLabel.Location = new System.Drawing.Point(391, 12);
+            this.startLabel.Name = "startLabel";
+            this.startLabel.Size = new System.Drawing.Size(38, 17);
+            this.startLabel.TabIndex = 12;
+            this.startLabel.Text = "Start";
+            // 
+            // endLabel
+            // 
+            this.endLabel.AutoSize = true;
+            this.endLabel.Location = new System.Drawing.Point(394, 36);
+            this.endLabel.Name = "endLabel";
+            this.endLabel.Size = new System.Drawing.Size(33, 17);
+            this.endLabel.TabIndex = 13;
+            this.endLabel.Text = "End";
+            // 
+            // startNUD
+            // 
+            this.startNUD.DecimalPlaces = 4;
+            this.startNUD.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.startNUD.Location = new System.Drawing.Point(435, 8);
+            this.startNUD.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.startNUD.Name = "startNUD";
+            this.startNUD.Size = new System.Drawing.Size(99, 22);
+            this.startNUD.TabIndex = 14;
+            this.startNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.startNUD.ValueChanged += new System.EventHandler(this.startNUD_ValueChanged);
+            // 
+            // endNUD
+            // 
+            this.endNUD.DecimalPlaces = 4;
+            this.endNUD.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.endNUD.Location = new System.Drawing.Point(435, 36);
+            this.endNUD.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.endNUD.Name = "endNUD";
+            this.endNUD.Size = new System.Drawing.Size(99, 22);
+            this.endNUD.TabIndex = 15;
+            this.endNUD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.endNUD.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.endNUD.ValueChanged += new System.EventHandler(this.endNUD_ValueChanged);
             // 
             // Form1
             // 
@@ -209,6 +277,8 @@ namespace Cubehelix
             ((System.ComponentModel.ISupportInitialize)(this.rotationsNUD)).EndInit();
             this.numberPanel.ResumeLayout(false);
             this.numberPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.startNUD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.endNUD)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -225,6 +295,10 @@ namespace Cubehelix
         private System.Windows.Forms.NumericUpDown startingColorNUD;
         private System.Windows.Forms.NumericUpDown rotationsNUD;
         private System.Windows.Forms.Panel numberPanel;
+        private System.Windows.Forms.NumericUpDown endNUD;
+        private System.Windows.Forms.NumericUpDown startNUD;
+        private System.Windows.Forms.Label endLabel;
+        private System.Windows.Forms.Label startLabel;
     }
 }
 
