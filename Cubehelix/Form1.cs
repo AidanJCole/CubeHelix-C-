@@ -15,6 +15,7 @@ namespace Cubehelix
         Cubehelix helix = new Cubehelix();
         int innerPicBoxPadding = 10;
         int oldFormWidth, oldFormHeight, spectrumHeight;
+        double[] spot = { 0, 0 };
 
         public Form1()
         {
@@ -23,6 +24,32 @@ namespace Cubehelix
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            helix.Hue = 2.02744140625;
+            helix.Rotations = 1;
+            helix.Start = 0;
+            helix.StartLightness = .5;
+            helix.EndLightness = .5;
+
+            double[,] numbers = { { 0, 0 }, { 0, 0 }, { 1/Math.PI, 1 } };
+            while (numbers[0, 1] != numbers[2, 1])
+            {
+                numbers[1, 0] = (numbers[0, 0] + numbers[2, 0]) / 2;
+               
+                for (int i = 0; i < 3; i++)
+                {
+                    numbers[i, 1] = helix.getAPoint(numbers[i, 0])[2, 0];
+                }
+                if (numbers[0, 1] > numbers[2, 1])
+                {
+                    numbers[2, 0] = numbers[1, 0];
+                }
+                else
+                {
+                    numbers[0, 0] = numbers[1, 0];
+                }
+            }
+            spot[0] = numbers[1,0];
+            spot[1] = numbers[1, 1];
             setNUDValues();
             setFormVariables();
         }
@@ -167,6 +194,11 @@ namespace Cubehelix
                         (float)interpolate(myColor.B, 0, 255, pictureBox.Height - innerPicBoxPadding, spectrumHeight + 2 * innerPicBoxPadding),
                         1, 1);
             }
+            graphicsObj.DrawRectangle(
+                new Pen(Brushes.Magenta, 1),
+                (float) (innerPicBoxPadding+ interpolate(spot[0], 0,1, 0,spectrumWidth)),
+                (float)interpolate(spot[1] * 255, 0, 255, pictureBox.Height - innerPicBoxPadding, spectrumHeight + 2 * innerPicBoxPadding),
+                1, 1);
         }
     }
 }
